@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- div placed to add background image -->
+    <div id="background">
+
+        <button class="back-link" onclick="goBack()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+            </svg>
+        </button>
+
+        <!-- Main contrainer: holds instructions, game and info sidebar -->
+        <div id="main-container">
+
+            <!-- Game instructions (left sidebar) -->
+            <div id="instructions" class="content-container sidebar">
+                <h2>Instructions</h2>
+                <div class="instruction-block">
+                    <h3>Start Rule</h3>
+                    <p>Please set the "Goal" first before start to play to knowing your level</p>
+                    <h3>Goal</h3>
+                    <div class="instructions-content-block">
+                        <p>To win, clear <span class="goal"></span> lines. Do not reach the top, because you will lose.
+                        </p>
+                    </div>
+                </div>
+                <div class="instruction-block">
+                    <h3>Rotate Piece</h3>
+                    <div class="instructions-content-block">
+                        <img class="key-img" src="images/arrow-up-icon.png" alt="arrow up">
+                    </div>
+                </div>
+                <div class="instruction-block">
+                    <h3>Move Piece</h3>
+                    <div class="instructions-content-block">
+                        <img class="key-img" src="images/arrow-left-icon.png" alt="arrow left">
+                        <img class="key-img" src="images/arrow-down-icon.png" alt="arrow down">
+                        <img class="key-img" src="images/arrow-right-icon.png" alt="arrow right">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game -->
+            <div id="game" class="content-container ">
+                <canvas id="game-canvas" width="300" height="540"></canvas>
+            </div>
+
+            <!-- Game Info (right sidebar) -->
+            <div id="score-box" class="content-container sidebar">
+                <div id="buttons">
+                    <button id="start-btn" class="game-btn">
+                        <h2>START</h2>
+                    </button>
+                    <button id="pause-btn" class="game-btn">
+                        <h2>PAUSE</h2>
+                    </button>
+                    <button id="continue-btn" class="game-btn">
+                        <h2>CONTINUE</h2>
+                    </button>
+                </div>
+                <div id="scores">
+                    <div id="goal-section">
+                        <span class="score-box-heading">Goal: <span id="goal-label" class="goal"></span>
+                            <input hidden id="goal-input" type="number" placeholder=""></span>
+                        <button id="change-goal-btn">CHANGE</button>
+                    </div>
+                    <span class="score-box-heading block">Time: <span id="time">00:00</span></span>
+                    <span class="score-box-heading block">Lines: <span id="lines">0</span></span>
+                    <span class="score-box-heading block">Score: <span id="score">0</span></span>
+                    <span class="score-box-heading block">Level: <span id="level">0</span></span>
+                </div>
+                <h2>Next piece:</h2>
+                <div id="next-piece">
+                    <img id="next-piece-img" src="images/pieces/" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Div for audio icon and audio elements -->
+    <div id="audio-container" class="audio-icon" onclick="toggleAudio()">
+        <img src="audio.png" alt="Audio Icon">
+    </div>
+
+    <audio id="theme-sound" controls hidden>
+        <source src="theme.mp3" type="audio/mp3">
+    </audio>
+    <audio controls hidden id="collision-sound">
+        <source src="sound/sounds_collision.mp3" type="audio/mp3">
+    </audio>
+    <audio controls hidden id="full-line-sound">
+        <source src="sound/fullline.mp3" type="audio/mp3">
+    </audio>
+    <audio controls hidden id="lost-sound">
+        <source src="sound/lost.mp3" type="audio/mp3">
+    </audio>
+    <audio controls hidden id="rotate-sound">
+        <source src="sound/rotate.mp3" type="audio/mp3">
+    </audio>
+    <audio controls hidden id="start-sound">
+        <source src="sound/start.mp3" type="audio/mp3">
+    </audio>
+    <audio controls hidden id="won-sound">
+        <source src="sound/won.mp3" type="audio/mp3">
+    </audio>
+
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/piece.js"></script>
+    <script type="text/javascript" src="js/tetris.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Overpass Mono', monospace;
+            color: rgb(82, 120, 186);
+            font-size: 90px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+
+            background-image: url('images/tetris-background.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            height: 80vh;
+            margin: 0;
+        }
+
+        .audio-icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+
+        .audio-icon img {
+            width: 100%;
+            height: 50px;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+
+        h1 {
+            font-size: 120px;
+            margin-bottom: 150px;
+            text-align: center;
+            font-family: 'Overpass Mono', monospace;
+        }
+
+        button {
+            padding: 20px 30px;
+            font-size: 20Px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>TETRIS GAME</h1>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div class="audio-icon" onclick="toggleAudio()">
+        <img src="audio.png" alt="Audio Icon">
+    </div>
+
+    <audio id="theme-sound" controls hidden>
+        <source src="theme.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function toggleAudio() {
+            var audio = document.getElementById("theme-sound");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function startGame() {
+            // Redirect to the game page or perform any other action to start the game
+            window.location.href = "uts.html"; // Change "game.html" to the actual file name of your game page
+        }
+    </script>
+
+</body>
+
+</html>
